@@ -1,18 +1,40 @@
 package shoo.competentum.shared;
 
+import shoo.competentum.shared.CustomerKind;
+
 import java.io.Serializable;
 
-/**
- * Created by shoo on 8/14/2014.
- */
+
 public class Customer implements Serializable {
-	private Integer itemsInCart;
+	private int itemsInCart;
+	private CustomerKind kind;
 
 	public Customer() {
 	}
 
-	public Customer(Integer itemsInCart) {
+	public int getItemsInCart() {
+		return itemsInCart;
+	}
+
+	public void setItemsInCart(int itemsInCart) {
 		this.itemsInCart = itemsInCart;
 	}
 
+	public CustomerKind getKind() {
+		return kind;
+	}
+
+	public void setKind(CustomerKind kind) {
+		this.kind = kind;
+	}
+
+	public Customer(int itemsInCart, CustomerKind kind) {
+		this.itemsInCart = itemsInCart;
+		this.kind = kind;
+	}
+
+	@Override
+	public String toString() {
+		return  kind + ": " +  itemsInCart;
+	}
 }

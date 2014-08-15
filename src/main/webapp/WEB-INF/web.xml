@@ -13,8 +13,10 @@
 
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/MarketCounting/greet</url-pattern>
+    <url-pattern>/MarketCounting/countingService</url-pattern>
   </servlet-mapping>
+
+
 
   <!-- Default page to serve -->
   <welcome-file-list>
