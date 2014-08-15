@@ -8,7 +8,7 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>greetServlet</servlet-name>
-    <servlet-class>shoo.competentum.server.GreetingServiceImpl</servlet-class>
+    <servlet-class>shoo.competentum.server.CountingServiceImpl</servlet-class>
   </servlet>
 
   <servlet-mapping>

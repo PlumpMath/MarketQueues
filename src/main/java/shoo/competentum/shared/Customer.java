@@ -1,8 +1,7 @@
 package shoo.competentum.shared;
 
-import shoo.competentum.shared.CustomerKind;
-
 import java.io.Serializable;
+import java.util.Objects;
 
 
 public class Customer implements Serializable {
@@ -36,5 +35,12 @@ public class Customer implements Serializable {
 	@Override
 	public String toString() {
 		return  kind + ": " +  itemsInCart;
+	}
+
+	public Object clone() {
+		Customer customer = new Customer();
+		customer.kind = kind;
+		customer.itemsInCart = itemsInCart;
+		return customer;
 	}
 }

@@ -34,6 +34,10 @@ public class State implements Serializable, Cloneable {
 	}
 
 	public Object clone(){
-		return new State((LinkedList<Customer>) queue.clone());
+		LinkedList<Customer> clonedQueue = new LinkedList<Customer>();
+		for (Customer customer: queue) {
+			clonedQueue.add((Customer) customer.clone());
+		}
+		return new State(clonedQueue);
 	}
 }

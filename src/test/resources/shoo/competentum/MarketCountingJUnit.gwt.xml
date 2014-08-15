@@ -4,6 +4,6 @@
   <inherits name='shoo.competentum.MarketCounting' />
 
   <!-- Specify the path to any remote services.                   -->
-  <servlet path="/MarketCounting/greet" class="shoo.competentum.server.GreetingServiceImpl" />
+  <servlet path="/MarketCounting/greet" class="shoo.competentum.server.CountingServiceImpl" />
 
 </module>

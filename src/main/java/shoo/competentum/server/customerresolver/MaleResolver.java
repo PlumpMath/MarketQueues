@@ -3,8 +3,6 @@ package shoo.competentum.server.customerresolver;
 import shoo.competentum.shared.CheckoutCounter;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
 
 
