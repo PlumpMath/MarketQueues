@@ -67,16 +67,13 @@ public class CounterProcessor {
 		Customer customer = populator.populate();
 		CustomerResolver resolver = getResolver(customer.getKind());
 		CheckoutCounter targetCounter = resolver.chooseCounter(counters);
-		LinkedList<State> history = targetCounter.getHistory();
-		State currentState = history.peekLast();
+		State currentState = targetCounter.getCurrentState();
 		currentState.getQueue().add(customer);
 		currentState.setCustomerAdded(true);
 	}
 
 	private void processCounter(CheckoutCounter counter) {
-		LinkedList<State> history = counter.getHistory();
-		State currentState = (State) history.peekLast().clone();
-
+		State currentState = counter.createState();
 		Customer currentCustomer = currentState.getQueue().peek();
 		if (currentCustomer!=null) {
 			int numItems = currentCustomer.getItemsInCart();

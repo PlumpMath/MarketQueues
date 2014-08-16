@@ -40,4 +40,12 @@ public class State implements Serializable, Cloneable {
 		}
 		return new State(clonedQueue);
 	}
+
+	@Override
+	public String toString() {
+		return "State{" +
+				"customerAdded=" + customerAdded +
+				", queue=" + queue +
+				'}';
+	}
 }
