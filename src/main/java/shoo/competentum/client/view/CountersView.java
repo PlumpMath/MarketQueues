@@ -2,10 +2,14 @@ package shoo.competentum.client.view;
 
 import com.google.gwt.dom.client.*;
 import com.google.gwt.user.client.ui.*;
+import org.vaadin.gwtgraphics.client.DrawingArea;
+import org.vaadin.gwtgraphics.client.shape.Rectangle;
 import shoo.competentum.shared.CheckoutCounter;
 import shoo.competentum.shared.Customer;
+import shoo.competentum.shared.CustomerKind;
 import shoo.competentum.shared.State;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class CountersView extends Composite {
@@ -65,76 +69,42 @@ public class CountersView extends Composite {
 //
 //	    // Push the data into the widget.
 //	    cellList.setRowData(0, DAYS);
+		int UNIT_WIDTH = 6;
+		int SPACING_WIDTH = 2;
+		int ITEM_HEIGHT = 3;
+		int SPACING_HEIGHT = 2;
+		HashMap<CustomerKind, String> colors = new HashMap<CustomerKind, String>(){{
+		    put(CustomerKind.CHILD, "#8dc63f");
+		    put(CustomerKind.FEMALE, "#ed145b");
+		    put(CustomerKind.MALE, "#0072bc");
+		}};;
 
 
 		for (CheckoutCounter counter : counters) {
-//			TableElement table = Document.get().createTableElement();
-//			table.setCellSpacing(3);
-//			table.setBorder(1);
-//			TableSectionElement tHead = table.createTHead();
-//			tHead.insertRow(-1).insertCell(-1).setInnerHTML("<h2>Counter [" + counter.getPerformance() + "]</h2>");
-//
-//			TableSectionElement tbody;
-//			table.appendChild(tbody = Document.get().createTBodyElement());
-//
-//
-//			TableRowElement content = tbody.insertRow(-1);
-			HorizontalPanel counterContainer = new HorizontalPanel();
 
 			//  create table // out += "Counter[" + counter.getPerformance() + "]: <br/>";
-			int i = 0;
+			int statesCount = 0;
+			DrawingArea counterCanvas = new DrawingArea((counter.getHistory().size() + 1) *  (UNIT_WIDTH + SPACING_WIDTH), 100);
+
 
 			for (State state : counter.getHistory()) {
-				i++;
-				Grid stateTable = new Grid(15,1);
-				stateTable.setBorderWidth(1);
-//				TableElement stateTable = Document.get().createTableElement();
-//				TableSectionElement stateHead = stateTable.createTHead();
-//				stateHead.insertRow(-1).insertCell(-1).setInnerHTML("<h3>S [" + i + "]</h3>");
-//				TableSectionElement stateBody;
-//				stateTable.appendChild(stateBody = Document.get().createTBodyElement());
-//
-              int cCount = 0;
+				statesCount++;
+                int customersCount = 0;
+				int lastY = 0;
 				for (Customer customer : state.getQueue()) {
-					stateTable.setText(cCount, 0, customer.getKind().toString().charAt(0) + ": " + customer.getItemsInCart());
-					stateTable.getRowFormatter().getElement(cCount).setPropertyString("bgcolor", "#ff0000");
-					stateTable.getRowFormatter().getElement(cCount).setPropertyString("height", "32");
-					cCount++;
-//					TableCellElement customerCell = stateBody.insertRow(-1).insertCell(-1);
-//					customerCell.setInnerHTML(customer.getKind().toString().charAt(0) + ": " + customer.getItemsInCart());
+					int customerHeight = customer.getItemsInCart() * ITEM_HEIGHT;
+					Rectangle rectangle = new Rectangle(statesCount * (UNIT_WIDTH + SPACING_WIDTH), lastY + SPACING_HEIGHT, UNIT_WIDTH, customerHeight);
+					rectangle.setFillColor(colors.get(customer.getKind()));
+					rectangle.setStrokeWidth(0);
+					lastY += customerHeight + SPACING_HEIGHT;
+					counterCanvas.add(rectangle);
+					customersCount++;
 				}
-				stateTable.getColumnFormatter().setWidth(0, "32");
-
-				counterContainer.add(stateTable);
-
 			}
-			container.add(new Label("Counter[" + counter.getPerformance() + "]:"));
-			container.add(counterContainer);
+			container.add(new HTML("<h2>Counter[" + counter.getPerformance() + "]</h2>"));
+			container.add(counterCanvas);
 		}
 
-//		TableElement table = Document.get().createTableElement();
-//		TableSectionElement tbody;
-//		table.appendChild(tbody = Document.get().createTBodyElement());
-//
-//		for (int i = 0; i < counters.size(); ++i) {
-//			TableRowElement row = tbody.insertRow(-1);
-//			CheckoutCounter t = counters.get(i);
-//
-//			for (int j = 0; j < columnDefinitions.size(); ++j) {
-//				TableCellElement cell = row.insertCell(-1);
-//				StringBuilder sb = new StringBuilder();
-//				columnDefinitions.get(j).render(t, sb);
-//				cell.setInnerHTML(sb.toString());
-//
-//				// TODO: Really total hack! There's gotta be a better way...
-//				Element child = cell.getFirstChildElement();
-//				if (child != null) {
-//					Event.sinkEvents(child, Event.ONFOCUS | Event.ONBLUR);
-//				}
-//			}
-//		}
-
-//		contentDetailsDecorator.add(serverResponseLabel);
 	}
 
 

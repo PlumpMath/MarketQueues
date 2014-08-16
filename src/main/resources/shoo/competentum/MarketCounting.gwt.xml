@@ -6,6 +6,7 @@
 
     <inherits name='org.gwtbootstrap3.GwtBootstrap3'/>
     <inherits name="org.gwtbootstrap3.extras.respond.Respond"/>
+    <inherits name='org.vaadin.gwtgraphics.GWTGraphics'/>
 
     <inherits name="com.google.gwt.logging.Logging"/>
     <entry-point class='shoo.competentum.client.MarketCounting'/>
