@@ -84,7 +84,6 @@ public class CounterProcessor {
 				currentState.getQueue().removeFirst();
 			}
 		}
-		counter.getHistory().add(currentState);
 	}
 
 
