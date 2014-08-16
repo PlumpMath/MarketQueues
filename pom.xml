@@ -54,7 +54,7 @@
         <dependency>
             <groupId>org.gwtbootstrap3</groupId>
             <artifactId>gwtbootstrap3</artifactId>
-            <version>0.4</version>
+            <version>0.8</version>
         </dependency>
         <dependency>
           <groupId>org.gwtbootstrap3</groupId>
@@ -79,7 +79,6 @@
                         <goals>
                             <goal>compile</goal>
                             <goal>test</goal>
-                            <goal>i18n</goal>
                             <goal>generateAsync</goal>
                         </goals>
                     </execution>
@@ -89,7 +88,6 @@
                 <configuration>
                     <runTarget>MarketCounting.html</runTarget>
                     <hostedWebapp>${webappDirectory}</hostedWebapp>
-                    <i18nMessagesBundle>shoo.competentum.client.Messages</i18nMessagesBundle>
                 </configuration>
             </plugin>
 

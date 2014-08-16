@@ -1,52 +1,37 @@
 package shoo.competentum.client.view;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Widget;
+import org.gwtbootstrap3.client.ui.Button;
 
-/*
-public interface ControlsView<T>  {
+public class ControlsView extends Composite {
+	interface ControlsView2UiBinder extends UiBinder<Widget, ControlsView> {
+	}
 
-  public interface Presenter<T> {
-    void onLaunchButtonClicked();
-  }
-  int getNumSteps();
-  void setPresenter(Presenter<T> presenter);
-  Widget asWidget();
-}
-*/
+	@UiField
+	Button launchButton;
 
-public class ControlsView  extends Composite  {
-
-
-	private final Button launchButton;
-
+	private static ControlsView2UiBinder ourUiBinder = GWT.create(ControlsView2UiBinder.class);
 
 	public ControlsView() {
-		DecoratorPanel contentDetailsDecorator = new DecoratorPanel();
-	    contentDetailsDecorator.setWidth("18em");
-	    initWidget(contentDetailsDecorator);
+		initWidget(ourUiBinder.createAndBindUi(this));
 
-	    VerticalPanel contentDetailsPanel = new VerticalPanel();
-	    contentDetailsPanel.setWidth("100%");
-
-
-
-	    HorizontalPanel menuPanel = new HorizontalPanel();
-	    launchButton = new Button("Launch");
-	    menuPanel.add(launchButton);
-	    contentDetailsPanel.add(menuPanel);
-	    contentDetailsDecorator.add(contentDetailsPanel);
 	}
 
 	public HasClickHandlers getLaunchButton() {
+
 		return launchButton;
 	}
 
-	public int getNumSteps(){
-	  return 5;
-  };
+	public int getNumSteps() {
+		return 50;
+	}
 
-  public Widget asWidget() {
-	  return this;
-  };
+	;
+
 }

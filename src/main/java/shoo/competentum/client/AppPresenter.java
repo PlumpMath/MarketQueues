@@ -9,6 +9,7 @@ import shoo.competentum.client.events.LaunchCustomersEvent;
 import shoo.competentum.client.presenter.ControlsPresenter;
 import shoo.competentum.client.presenter.CountersPresenter;
 import shoo.competentum.client.presenter.Presenter;
+import shoo.competentum.client.view.AppView;
 import shoo.competentum.client.view.ControlsView;
 import shoo.competentum.client.view.CountersView;
 import shoo.competentum.shared.CheckoutCounter;
@@ -18,22 +19,25 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class AppController implements Presenter {
+public class AppPresenter implements Presenter {
 	private final HandlerManager eventBus;
 	private final CountingServiceAsync rpcService;
+	private AppView display;
 	private HasWidgets container;
 	private VerticalPanel resultContainer;
 	private ControlsView controlsView;
 	private CountersView countersView;
 
-	public AppController(CountingServiceAsync rpcService,
-	                     HandlerManager eventBus) {
+	public AppPresenter(CountingServiceAsync rpcService,
+	                    HandlerManager eventBus, AppView display) {
 		this.eventBus = eventBus;
 		this.rpcService = rpcService;
+		this.display = display;
 
 		controlsView = new ControlsView();
-		resultContainer = new VerticalPanel();
-
+		new ControlsPresenter(eventBus, controlsView);
+		display.getControlsContainer().add(controlsView);
+		resultContainer = display.getContentContainer();
 		bind();
 	}
 
@@ -49,28 +53,21 @@ public class AppController implements Presenter {
 
 							public void onSuccess(List<CheckoutCounter> result) {
 								// todo reuse
-								Logger logger = Logger.getLogger("NameOfYourLogger");
-								logger.log(Level.SEVERE, "result" + result);
+								Logger logger = Logger.getLogger("onSuccess:");
+								logger.log(Level.SEVERE, " " + result);
 								countersView = new CountersView();
-
 								new CountersPresenter(result, countersView)
 										.go(resultContainer);
 							}
-
-
 						});
 					}
 				}
 		);
-
-
 	}
 
 
 	public void go(HasWidgets container) {
-		this.container = container;
-		container.add(controlsView);
-		new ControlsPresenter(eventBus, controlsView).go(container);
-		container.add(resultContainer);
+		container.clear();
+		container.add(display.asWidget());
 	}
 }

@@ -13,7 +13,7 @@ public class RandomPopulator implements Populator {
 	public Customer populate() {
 		CustomerKind[] values = CustomerKind.values();
 		CustomerKind kind = values[RND.nextInt(values.length)];
-		int items = RND.nextInt(MAX_ITEMS);
+		int items = RND.nextInt(MAX_ITEMS - 1) + 1;
 		Customer customer = new Customer(items, kind);
 		return customer;
 	}
