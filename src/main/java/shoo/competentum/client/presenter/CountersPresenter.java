@@ -14,15 +14,11 @@ public class CountersPresenter implements Presenter {
 
 
 	public CountersPresenter(List<CheckoutCounter> data, CountersView display) {
-		Logger logger = Logger.getLogger("CountersPresenter:");
-		logger.log(Level.SEVERE, " " + data);
 		this.display = display;
 		display.setData(data);
 	}
 
 	public void go(final HasWidgets container) {
-		Logger logger = Logger.getLogger("CountersPresenter:");
-		logger.log(Level.SEVERE, " add");
 		container.clear();
 		container.add(display.asWidget());
 	}

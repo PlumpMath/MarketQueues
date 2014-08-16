@@ -16,9 +16,6 @@ public class MarketCounting implements EntryPoint {
 		HandlerManager eventBus = new HandlerManager(null);
 		AppPresenter presenter = new AppPresenter(greetingService, eventBus, new AppView());
 		presenter.go(RootPanel.get());
-
-
-
 	}
 
 

@@ -3,31 +3,30 @@
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
         >
     <g:HorizontalPanel>
-        <g:VerticalPanel>
-            <g:HorizontalPanel>
-                <g:Label>Min performance:</g:Label>
-                <b:ButtonToolBar>
-                    <b:ButtonGroup>
-                        <b:Button>1</b:Button>
-                        <b:Button>2</b:Button>
-                        <b:Button>3</b:Button>
-                    </b:ButtonGroup>
-                </b:ButtonToolBar>
-            </g:HorizontalPanel>
-            <g:HorizontalPanel>
-                <g:Label>Max performance:</g:Label>
-                <b:ButtonToolBar>
-                    <b:ButtonGroup>
-                        <b:Button>1</b:Button>
-                        <b:Button>2</b:Button>
-                        <b:Button>3</b:Button>
-                    </b:ButtonGroup>
-                </b:ButtonToolBar>
-            </g:HorizontalPanel>
-        </g:VerticalPanel>
-        <g:VerticalPanel>
-
-        </g:VerticalPanel>
+        <!--<g:VerticalPanel>-->
+            <!--<g:HorizontalPanel>-->
+                <!--<g:Label>Min performance:</g:Label>-->
+                <!--<b:ButtonToolBar>-->
+                    <!--<b:ButtonGroup>-->
+                        <!--<b:Button>1</b:Button>-->
+                        <!--<b:Button>2</b:Button>-->
+                        <!--<b:Button>3</b:Button>-->
+                    <!--</b:ButtonGroup>-->
+                <!--</b:ButtonToolBar>-->
+            <!--</g:HorizontalPanel>-->
+            <!--<g:HorizontalPanel>-->
+                <!--<g:Label>Max performance:</g:Label>-->
+                <!--<b:ButtonToolBar>-->
+                    <!--<b:ButtonGroup>-->
+                        <!--<b:Button>1</b:Button>-->
+                        <!--<b:Button>2</b:Button>-->
+                        <!--<b:Button>3</b:Button>-->
+                    <!--</b:ButtonGroup>-->
+                <!--</b:ButtonToolBar>-->
+            <!--</g:HorizontalPanel>-->
+        <!--</g:VerticalPanel>-->
+        <!--<g:VerticalPanel>-->
+        <!--</g:VerticalPanel>-->
         <b:Button type="PRIMARY" ui:field="launchButton">Launch</b:Button>
     </g:HorizontalPanel>
 </ui:UiBinder>
