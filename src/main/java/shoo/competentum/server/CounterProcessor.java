@@ -65,7 +65,7 @@ public class CounterProcessor {
 
 	private void populate() {
 		Customer customer = populator.populate();
-		CustomerResolver resolver = getResolver(customer.getKind());
+		CustomerResolver resolver = getResolver(customer);
 		CheckoutCounter targetCounter = resolver.chooseCounter(counters);
 		State currentState = targetCounter.getCurrentState();
 		currentState.getQueue().add(customer);
@@ -87,10 +87,10 @@ public class CounterProcessor {
 	}
 
 
-	private CustomerResolver getResolver(CustomerKind kind) {
-		switch (kind) {
+	private CustomerResolver getResolver(Customer customer) {
+		switch (customer.getKind()) {
 			case MALE:
-				return new MaleResolver();
+				return new MaleResolver(customer);
 			case FEMALE:
 				return new FemaleResolver();
 			case CHILD:

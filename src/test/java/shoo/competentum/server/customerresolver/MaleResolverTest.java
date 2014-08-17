@@ -17,7 +17,7 @@ public class MaleResolverTest {
 
 	@Before
 	public void setUp() throws Exception {
-		resolver = new MaleResolver();
+		resolver = new MaleResolver(new Customer(5, CustomerKind.MALE));
 	}
 
 
@@ -92,6 +92,20 @@ public class MaleResolverTest {
 		checkoutCounter3.setPerformance(5);
 
 		assertEquals(checkoutCounter3, resolver.chooseCounter(countersList));
+	}
+
+	@Test
+	public void should_take_into_account_owned_items() throws Exception {
+		ArrayList<CheckoutCounter> countersList = new ArrayList<CheckoutCounter>();
+		CheckoutCounter checkoutCounter1 = new CheckoutCounter(1);
+		countersList.add(checkoutCounter1);
+		CheckoutCounter checkoutCounter2 = new CheckoutCounter(2);
+		checkoutCounter2.getCurrentState().getQueue().addAll(Arrays.asList(new Customer(2, CustomerKind.CHILD)));
+		countersList.add(checkoutCounter2);
+
+
+		assertEquals(checkoutCounter2, resolver.chooseCounter(countersList));
+
 	}
 
 
