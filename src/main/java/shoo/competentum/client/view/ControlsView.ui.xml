@@ -29,7 +29,7 @@
                     </b:Row>
                     <b:Row>
                         <b:Column size="MD_12">
-                            <b3:Slider width="100px" ui:field="numSteps" min="1" max="150" step="1"/>
+                            <b3:Slider width="100px" value="100.0" ui:field="numSteps" min="1" max="150" step="1"/>
                         </b:Column>
                     </b:Row>
                 </b:Column>

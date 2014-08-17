@@ -27,16 +27,53 @@ public class CountersView extends Composite {
 		put(CustomerKind.MALE, "#0072bc");
 	}};
 	;
+	VerticalPanel container;
 
 
 	public CountersView() {
+		container = new VerticalPanel();
+		initWidget(container);
+		Description descr = new Description();
+		addLegendPictures(descr);
+		container.add(descr);
+	}
+
+	private void addLegendPictures(Description target) {
+
+		int scale = 2;
+		int width = UNIT_WIDTH * scale;
+		int height = (ITEM_HEIGHT + SPACING_HEIGHT) * scale;
+		DrawingArea maleCanvas = new DrawingArea(width, height);
+		drawRect(maleCanvas, 0, 0, width, height, colors.get(CustomerKind.MALE));
+		target.getMalePic().add(maleCanvas);
+
+		DrawingArea femaleCanvas = new DrawingArea(width, height);
+		drawRect(femaleCanvas, 0, 0, width, height, colors.get(CustomerKind.FEMALE));
+		target.getFemalePic().add(femaleCanvas);
+
+		DrawingArea childCanvas = new DrawingArea(width, height);
+		drawRect(childCanvas, 0, 0, width, height, colors.get(CustomerKind.CHILD));
+		target.getChildPic().add(childCanvas);
+
+		DrawingArea multiCanvas = new DrawingArea(width, height * 3);
+		drawRect(multiCanvas, 0, 0, width, height * 3, colors.get(CustomerKind.FEMALE));
+		drawLine(multiCanvas, 0, height, width, height, "#ffffff", SPACING_HEIGHT * scale, 0.5);
+		drawLine(multiCanvas, 0, height * 2, width, height * 2, "#ffffff", SPACING_HEIGHT * scale, 0.5);
+		target.getMultiItemPic().add(multiCanvas);
+
+		DrawingArea newCanvas = new DrawingArea(width, height * 3);
+		drawRect(newCanvas, 0, 0, width, height * 2, colors.get(CustomerKind.MALE));
+		drawLine(newCanvas, 0, height, width, height, "#ffffff", SPACING_HEIGHT * scale, 0.5);
+		Circle circle = new Circle( width / 2,  width / 3, width / 3);
+		circle.setFillColor("#ffae00");
+		circle.setStrokeWidth(0);
+		newCanvas.add(circle);
+		target.getNewPic().add(newCanvas);
 
 	}
 
-
 	public void setData(List<CheckoutCounter> counters) {
-		VerticalPanel container = new VerticalPanel();
-		initWidget(container);
+
 		for (CheckoutCounter counter : counters) {
 			int statesCount = 0;
 			int performance = counter.getPerformance();
@@ -99,21 +136,20 @@ public class CountersView extends Composite {
 
 	private void drawGrid(DrawingArea canvas, int gWidth, int gHeight, String color, Double opacity, int thickness, int yoffset) {
 		for (int pos = gWidth; pos < canvas.getWidth(); pos += gWidth) {
-			Line line = new Line(pos, 0, pos, canvas.getHeight());
-			line.setStrokeColor(color);
-			line.setStrokeWidth(thickness);
-			line.setStrokeOpacity(opacity);
-			canvas.add(line);
+			drawLine(canvas, pos, 0, pos, canvas.getHeight(), color, thickness, opacity);
 		}
 
 		for (int pos = gHeight; pos < canvas.getHeight(); pos += gHeight) {
-			Line line = new Line(0, pos - yoffset, canvas.getWidth(), pos - yoffset);
-			line.setStrokeColor(color);
-			line.setStrokeOpacity(opacity);
-			line.setStrokeWidth(thickness);
-
-			canvas.add(line);
+			drawLine(canvas, 0, pos - yoffset, canvas.getWidth(), pos - yoffset, color, thickness, opacity);
 		}
+	}
+
+	private void drawLine(DrawingArea canvas, int x1, int y1, int x2, int y2, String color, int thickness, Double opacity) {
+		Line line = new Line(x1, y1, x2, y2);
+		line.setStrokeColor(color);
+		line.setStrokeWidth(thickness);
+		line.setStrokeOpacity(opacity);
+		canvas.add(line);
 	}
 
 }
