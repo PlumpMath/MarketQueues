@@ -7,6 +7,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import org.gwtbootstrap3.client.ui.Button;
+import org.gwtbootstrap3.extras.slider.client.ui.Slider;
 
 public class ControlsView extends Composite {
 	interface ControlsView2UiBinder extends UiBinder<Widget, ControlsView> {
@@ -14,6 +15,11 @@ public class ControlsView extends Composite {
 
 	@UiField
 	Button launchButton;
+	@UiField
+	Slider numCounters;
+	@UiField
+	Slider numSteps;
+
 
 	private static ControlsView2UiBinder ourUiBinder = GWT.create(ControlsView2UiBinder.class);
 
@@ -28,9 +34,13 @@ public class ControlsView extends Composite {
 	}
 
 	public int getNumSteps() {
-		return 50;
+		return (int) Math.floor(numSteps.getValue());
 	}
 
 	;
+
+	public int getNumCounters() {
+		return (int) Math.floor(numCounters.getValue());
+	}
 
 }

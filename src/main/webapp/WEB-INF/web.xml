@@ -6,6 +6,9 @@
 <web-app>
 
   <!-- Servlets -->
+
+
+
   <servlet>
     <servlet-name>greetServlet</servlet-name>
     <servlet-class>shoo.competentum.server.CountingServiceImpl</servlet-class>

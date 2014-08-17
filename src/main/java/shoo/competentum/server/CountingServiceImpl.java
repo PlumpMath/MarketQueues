@@ -14,14 +14,10 @@ public class CountingServiceImpl extends RemoteServiceServlet implements
 		CountingService {
 
 
-	public List<CheckoutCounter> processCustomers(int numSteps) throws IllegalArgumentException {
-		CounterProcessor processor = new CounterProcessor();
-		try {
-			List<CheckoutCounter> result = processor.launch(numSteps);
-			return result;
-		} catch (Throwable t) {
-			System.out.print("Failed on launch " + t.getStackTrace());
-		}
-		return null;
+	public List<CheckoutCounter> processCustomers(int numSteps, int numCounters) throws IllegalArgumentException {
+		CounterProcessor processor = new CounterProcessor(numCounters);
+		List<CheckoutCounter> result = processor.launch(numSteps);
+		return result;
+
 	}
 }

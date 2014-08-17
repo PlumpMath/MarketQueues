@@ -15,17 +15,13 @@ import shoo.competentum.client.view.CountersView;
 import shoo.competentum.shared.CheckoutCounter;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class AppPresenter implements Presenter {
 	private final HandlerManager eventBus;
 	private final CountingServiceAsync rpcService;
 	private AppView display;
-	private HasWidgets container;
 	private VerticalPanel resultContainer;
-	private ControlsView controlsView;
 	private CountersView countersView;
 
 	public AppPresenter(CountingServiceAsync rpcService,
@@ -34,7 +30,7 @@ public class AppPresenter implements Presenter {
 		this.rpcService = rpcService;
 		this.display = display;
 
-		controlsView = new ControlsView();
+		ControlsView controlsView = new ControlsView();
 		new ControlsPresenter(eventBus, controlsView);
 		display.getControlsContainer().add(controlsView);
 		resultContainer = display.getContentContainer();
@@ -45,16 +41,13 @@ public class AppPresenter implements Presenter {
 		eventBus.addHandler(LaunchCustomersEvent.TYPE,
 				new LaunchCustomerEventHandler() {
 					public void onLaunch(LaunchCustomersEvent event) {
-						rpcService.processCustomers(event.getSteps(), new AsyncCallback<List<CheckoutCounter>>() {
+						rpcService.processCustomers(event.getSteps(), event.getNumCounters(), new AsyncCallback<List<CheckoutCounter>>() {
 							public void onFailure(Throwable caught) {
-								Logger logger = Logger.getLogger("Fail:");
-								logger.log(Level.SEVERE, caught.getMessage() + caught.getStackTrace());
+								// todo alert for user
 							}
 
 							public void onSuccess(List<CheckoutCounter> result) {
 								// todo reuse
-								Logger logger = Logger.getLogger("onSuccess:");
-								logger.log(Level.SEVERE, " " + result);
 								countersView = new CountersView();
 								new CountersPresenter(result, countersView)
 										.go(resultContainer);

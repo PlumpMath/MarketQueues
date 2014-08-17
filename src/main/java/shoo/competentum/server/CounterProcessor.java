@@ -23,13 +23,12 @@ public class CounterProcessor {
 	private Populator populator;
 
 
-	public CounterProcessor() {
-		this(3);
-		populator = new RandomPopulator();
+	private CounterProcessor() {
 	}
 
 
 	public CounterProcessor(int numCounters) {
+		populator = new RandomPopulator();
 		for (int i = 0; i < numCounters; i++) {
 			counters.add(
 					new CheckoutCounter(RND.nextInt(MAX_PERFORMANCE - MIN_PERFORMANCE) + MIN_PERFORMANCE)
@@ -38,26 +37,16 @@ public class CounterProcessor {
 	}
 
 	public List<CheckoutCounter> launch(int numSteps) {
-		for (int i=0; i < numSteps; i++) {
+		for (int i = 0; i < numSteps; i++) {
 			step();
 		}
 		return counters;
 	}
 
 	private void step() {
-		try {
-			populate();
-		} catch (Exception e) {
-			System.out.print("Populate fails");
-			e.printStackTrace();
-		}
+		populate();
 		for (CheckoutCounter counter : counters) {
-			try {
-				processCounter(counter);
-			} catch (Exception e) {
-				System.out.print("Process fails");
-				e.printStackTrace();
-			}
+			processCounter(counter);
 		}
 	}
 
@@ -73,7 +62,7 @@ public class CounterProcessor {
 	private void processCounter(CheckoutCounter counter) {
 		State currentState = counter.createState();
 		Customer currentCustomer = currentState.getQueue().peek();
-		if (currentCustomer!=null) {
+		if (currentCustomer != null) {
 			int numItems = currentCustomer.getItemsInCart();
 			if (numItems > counter.getPerformance()) {
 				currentCustomer.setItemsInCart(numItems - counter.getPerformance());

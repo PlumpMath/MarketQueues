@@ -22,7 +22,7 @@ public class ControlsPresenter implements Presenter {
 	public void bind() {
 		this.display.getLaunchButton().addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				eventBus.fireEvent(new LaunchCustomersEvent(display.getNumSteps()));
+				eventBus.fireEvent(new LaunchCustomersEvent(display.getNumSteps(), display.getNumCounters()));
 			}
 		});
 	}
