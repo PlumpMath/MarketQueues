@@ -1,6 +1,5 @@
 package shoo.competentum.server.customerresolver;
 
-import com.sun.javafx.beans.annotations.NonNull;
 import shoo.competentum.shared.CheckoutCounter;
 import shoo.competentum.shared.Customer;
 
@@ -12,11 +11,11 @@ import java.util.Comparator;
 public class MaleResolver implements CustomerResolver {
 	private Customer customer;
 
-	public MaleResolver(@NonNull Customer customer) {
+	public MaleResolver(Customer customer) {
 		this.customer = customer;
 	}
 
-	private MaleResolver(){
+	private MaleResolver() {
 
 	}
 

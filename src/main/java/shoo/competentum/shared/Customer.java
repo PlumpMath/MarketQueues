@@ -1,7 +1,6 @@
 package shoo.competentum.shared;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 
 public class Customer implements Serializable {

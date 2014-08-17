@@ -5,8 +5,6 @@ import shoo.competentum.client.view.CountersView;
 import shoo.competentum.shared.CheckoutCounter;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class CountersPresenter implements Presenter {
 

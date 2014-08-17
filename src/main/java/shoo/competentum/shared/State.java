@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class State implements Serializable, Cloneable {
 
-	private Boolean customerAdded;
+	private Boolean customerAdded = false;
 	private LinkedList<Customer> queue;
 
 

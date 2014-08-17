@@ -8,18 +8,16 @@ import shoo.competentum.server.populators.Populator;
 import shoo.competentum.server.populators.RandomPopulator;
 import shoo.competentum.shared.CheckoutCounter;
 import shoo.competentum.shared.Customer;
-import shoo.competentum.shared.CustomerKind;
 import shoo.competentum.shared.State;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 
 public class CounterProcessor {
-	private final int MIN_PERFORMANCE = 1;
-	private final int MAX_PERFORMANCE = 5;
+	private final int MIN_PERFORMANCE = 3;
+	private final int MAX_PERFORMANCE = 6;
 	private final Random RND = new Random();
 	private ArrayList<CheckoutCounter> counters = new ArrayList<CheckoutCounter>();
 	private Populator populator;
