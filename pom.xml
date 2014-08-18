@@ -48,16 +48,17 @@
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
+            <version>1.0.0.GA</version>
+            <scope>provided</scope>
+          </dependency>
+
+          <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
+            <version>1.0.0.GA</version>
             <classifier>sources</classifier>
-            <scope>test</scope>
-        </dependency>
+            <scope>provided</scope>
+          </dependency>
         <dependency>
             <groupId>org.gwtbootstrap3</groupId>
             <artifactId>gwtbootstrap3</artifactId>
@@ -95,6 +96,9 @@
                 <version>2.6.1</version>
                 <executions>
                     <execution>
+                        <configuration>
+                            <style>PRETTY</style>
+                        </configuration>
                         <goals>
                             <goal>compile</goal>
                             <goal>test</goal>
