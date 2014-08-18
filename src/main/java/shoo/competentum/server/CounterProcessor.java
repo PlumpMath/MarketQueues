@@ -5,7 +5,6 @@ import shoo.competentum.server.customerresolver.CustomerResolver;
 import shoo.competentum.server.customerresolver.FemaleResolver;
 import shoo.competentum.server.customerresolver.MaleResolver;
 import shoo.competentum.server.populators.Populator;
-import shoo.competentum.server.populators.RandomPopulator;
 import shoo.competentum.shared.CheckoutCounter;
 import shoo.competentum.shared.Customer;
 import shoo.competentum.shared.State;
@@ -27,8 +26,8 @@ public class CounterProcessor {
 	}
 
 
-	public CounterProcessor(int numCounters) {
-		populator = new RandomPopulator();
+	public CounterProcessor(int numCounters, Populator populator) {
+		this.populator = populator;
 		for (int i = 0; i < numCounters; i++) {
 			counters.add(
 					new CheckoutCounter(RND.nextInt(MAX_PERFORMANCE - MIN_PERFORMANCE) + MIN_PERFORMANCE)
@@ -43,14 +42,18 @@ public class CounterProcessor {
 		return counters;
 	}
 
-	private void step() {
-		populate();
+	private void step()  {
+		try {
+			populate();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
 		for (CheckoutCounter counter : counters) {
 			processCounter(counter);
 		}
 	}
 
-	private void populate() {
+	private void populate() throws IllegalAccessException {
 		Customer customer = populator.populate();
 		CustomerResolver resolver = getResolver(customer);
 		CheckoutCounter targetCounter = resolver.chooseCounter(counters);

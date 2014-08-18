@@ -7,7 +7,7 @@
     <inherits name="org.gwtbootstrap3.extras.slider.Slider"/>
     <inherits name='org.vaadin.gwtgraphics.GWTGraphics'/>
 
-    <inherits name="com.google.gwt.logging.Logging"/>
+    <!--<inherits name="com.google.gwt.logging.Logging"/>-->
     <entry-point class='shoo.competentum.client.MarketCounting'/>
 
     <source path='client'/>

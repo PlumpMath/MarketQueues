@@ -41,7 +41,7 @@ public class AppPresenter implements Presenter {
 		eventBus.addHandler(LaunchCustomersEvent.TYPE,
 				new LaunchCustomerEventHandler() {
 					public void onLaunch(LaunchCustomersEvent event) {
-						rpcService.processCustomers(event.getSteps(), event.getNumCounters(), new AsyncCallback<List<CheckoutCounter>>() {
+						rpcService.processCustomers(event.getSteps(), event.getNumCounters(), event.getMalesPercent(), event.getFemalesPercent(), new AsyncCallback<List<CheckoutCounter>>() {
 							public void onFailure(Throwable caught) {
 								// todo alert for user
 							}

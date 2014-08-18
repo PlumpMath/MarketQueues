@@ -4,5 +4,5 @@ import shoo.competentum.shared.Customer;
 
 
 public interface Populator {
-	public Customer populate();
+	public Customer populate() throws IllegalAccessException;
 }

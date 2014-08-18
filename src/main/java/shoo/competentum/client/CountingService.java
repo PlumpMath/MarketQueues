@@ -11,5 +11,5 @@ import java.util.List;
  */
 @RemoteServiceRelativePath("countingService")
 public interface CountingService extends RemoteService {
-  List<CheckoutCounter> processCustomers(int numSteps, int numCounters) throws IllegalArgumentException;
+  List<CheckoutCounter> processCustomers(int numSteps, int numCounters, double malePercent, double femalePercent) throws IllegalArgumentException;
 }
