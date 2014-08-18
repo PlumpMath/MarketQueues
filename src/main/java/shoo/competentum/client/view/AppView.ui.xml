@@ -17,7 +17,7 @@
 
 
     <b:Container >
-        <b:PageHeader>Рассчет движения очереди</b:PageHeader>
+        <b:PageHeader>Расчет движения очереди</b:PageHeader>
 
         <!--<b:Button>Some button</b:Button>-->
 

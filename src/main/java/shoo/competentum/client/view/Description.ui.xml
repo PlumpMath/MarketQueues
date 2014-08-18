@@ -51,7 +51,7 @@
                             <b:Column size="MD_9">
                                 <g:HTMLPanel>
                                     <b.html:Strong>Покупатель-женщина</b.html:Strong>
-                                    выбирает<b.html:Italic>очередь покороче</b.html:Italic>.
+                                    выбирает <b.html:Italic>очередь покороче</b.html:Italic>.
                                 </g:HTMLPanel>
                             </b:Column>
                         </b:Row>
