@@ -1,6 +1,7 @@
 package shoo.competentum.client;
 
 import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -43,8 +44,8 @@ public class AppPresenter implements Presenter {
 					public void onLaunch(LaunchCustomersEvent event) {
 						rpcService.processCustomers(event.getSteps(), event.getNumCounters(), event.getMalesPercent(), event.getFemalesPercent(), new AsyncCallback<List<CheckoutCounter>>() {
 							public void onFailure(Throwable caught) {
-								// todo alert for user
-							}
+								Window.alert("Произошла ошибка при обращении к серверу");
+								}
 
 							public void onSuccess(List<CheckoutCounter> result) {
 								// todo reuse
