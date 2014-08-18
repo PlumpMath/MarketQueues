@@ -107,6 +107,9 @@ public class CountersView extends Composite {
 			if (unusedSlotsForNextStep == 0) {
 				customerHeight -= SPACING_HEIGHT;
 			}
+			if(counterCanvas.getHeight() < lastY + customerHeight) {
+				counterCanvas.setHeight(lastY + customerHeight);
+			}
 			drawRect(counterCanvas, lastY, x0, UNIT_WIDTH, customerHeight, colors.get(customer.getKind()));
 			customersCount++;
 			if (customersCount < state.getQueue().size()) { // сохранить значение lastY для последнего покупателя,
