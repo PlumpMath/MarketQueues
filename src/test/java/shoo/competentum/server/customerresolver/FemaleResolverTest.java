@@ -7,7 +7,8 @@ import shoo.competentum.shared.Customer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 public class FemaleResolverTest {
 
 	CustomerResolver resolver;

@@ -2,31 +2,28 @@ package shoo.competentum.client.view;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
-import org.gwtbootstrap3.client.ui.Button;
-import org.gwtbootstrap3.extras.slider.client.ui.Slider;
 
 public class ControlsView extends Composite {
 	interface ControlsView2UiBinder extends UiBinder<Widget, ControlsView> {
 	}
 
 	@UiField
-	Button launchButton;
+	com.google.gwt.user.client.ui.Button launchButton;
 	@UiField
-	Slider numCounters;
+	TextBox numCounters;
 	@UiField
-	Slider numSteps;
+	TextBox numSteps;
 	@UiField
-	Slider malePrc;
+	TextBox malePrc;
 	@UiField
-	Slider femalePrc;
+	TextBox femalePrc;
 	@UiField
-	Slider childrenPrc;
+	TextBox childrenPrc;
 
 
 	private static ControlsView2UiBinder ourUiBinder = GWT.create(ControlsView2UiBinder.class);
@@ -34,28 +31,28 @@ public class ControlsView extends Composite {
 	public ControlsView() {
 		initWidget(ourUiBinder.createAndBindUi(this));
 
-		malePrc.addValueChangeHandler(new ValueChangeHandler<Double>() {
-			public void onValueChange(ValueChangeEvent<Double> event) {
-				double sum = event.getValue() + femalePrc.getValue();
-				if (sum > 100) {
-					malePrc.setValue(100 - femalePrc.getValue());
-					childrenPrc.setValue(0.0);
-				} else {
-					childrenPrc.setValue(100 - femalePrc.getValue() - event.getValue());
-				}
-			}
-		});
-		femalePrc.addValueChangeHandler(new ValueChangeHandler<Double>() {
-			public void onValueChange(ValueChangeEvent<Double> event) {
-				double sum = event.getValue() + malePrc.getValue();
-				if (sum > 100) {
-					femalePrc.setValue(100 - malePrc.getValue());
-					childrenPrc.setValue(0.0);
-				} else {
-					childrenPrc.setValue(100 - malePrc.getValue() - event.getValue());
-				}
-			}
-		});
+//		malePrc.addValueChangeHandler(new ValueChangeHandler<Double>() {
+//			public void onValueChange(ValueChangeEvent<Double> event) {
+//				double sum = event.getValue() + femalePrc.getValue();
+//				if (sum > 100) {
+//					malePrc.setValue(100 - femalePrc.getValue());
+//					childrenPrc.setValue(0.0);
+//				} else {
+//					childrenPrc.setValue(100 - femalePrc.getValue() - event.getValue());
+//				}
+//			}
+//		});
+//		femalePrc.addValueChangeHandler(new ValueChangeHandler<Double>() {
+//			public void onValueChange(ValueChangeEvent<Double> event) {
+//				double sum = event.getValue() + malePrc.getValue();
+//				if (sum > 100) {
+//					femalePrc.setValue(100 - malePrc.getValue());
+//					childrenPrc.setValue(0.0);
+//				} else {
+//					childrenPrc.setValue(100 - malePrc.getValue() - event.getValue());
+//				}
+//			}
+//		});
 	}
 
 
@@ -65,20 +62,20 @@ public class ControlsView extends Composite {
 	}
 
 	public Double getMalePrc() {
-		return malePrc.getValue();
+		return Double.parseDouble(malePrc.getText());
 	}
 
 	public Double getFemalePrc() {
-		return femalePrc.getValue();
+		return Double.parseDouble(femalePrc.getText());
 	}
 
 	public int getNumSteps() {
-		return (int) Math.floor(numSteps.getValue());
+		return Integer.parseInt(numSteps.getText());
 	}
 
 
 	public int getNumCounters() {
-		return (int) Math.floor(numCounters.getValue());
+		return Integer.parseInt(numCounters.getText());
 	}
 
 }

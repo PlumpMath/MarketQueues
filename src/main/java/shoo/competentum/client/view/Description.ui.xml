@@ -1,121 +1,100 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-             xmlns:b="urn:import:org.gwtbootstrap3.client.ui"
-             xmlns:b.html="urn:import:org.gwtbootstrap3.client.ui.html"
              xmlns:g="urn:import:com.google.gwt.user.client.ui">
-    <b.html:Div>
-        <b.html:Br/>
-        <b.html:Br/>
-        <b:Lead text="Описание"/>
+    <g:HTMLPanel>
+        <h3>Описание</h3>
 
 
         <!--<g:HorizontalPanel>-->
-            <!--<b:Lead text="Описание"/>-->
-            <!--<b:Button type="PRIMARY" marginLeft="50" size="EXTRA_SMALL" dataToggle="COLLAPSE" dataTarget="#demoCollapse" text="Скрыть"/>-->
+        <!--<b:Lead text="Описание"/>-->
+        <!--<b:Button type="PRIMARY" marginLeft="50" dataToggle="COLLAPSE" dataTarget="#demoCollapse" text="Скрыть"/>-->
         <!--</g:HorizontalPanel>-->
         <!--<b:Collapse b:id="demoCollapse">-->
-            <b.html:Div width="960px">
-                <b:Row>
-                    <b:Column size="MD_12">
+        <g:VerticalPanel>
+            <g:HorizontalPanel>
+                <g:HTMLPanel>
+                    <p>На диаграммах ниже визуализирована работа касс магазина. Каждая диаграмма отображает изменение
+                        очереди в течение определенного промежутка времени. Вдоль горизонтальной оси слева направо
+                        отложено время, каждый столбец — состояние очереди на определенном шаге. Кассы могут иметь
+                        разную «длину ленты» — количество товаров, которые могут быть обработаны за один шаг
+                    </p>
+                    <p>Лента на диаграммах отображена в виде серой полосы вверху диаграммы, высота которой соответствует
+                        «длине ленты». Сетка разлинована также в «длинах лент», таким образом в каждом столбце можно
+                        видеть, как он будет смещаться с течением времени (на одну ячейку за шаг).
+                    </p>
+                </g:HTMLPanel>
+            </g:HorizontalPanel>
+        </g:VerticalPanel>
+
+        <g:HorizontalPanel>
+
+        <g:VerticalPanel>
+
+                    <g:HorizontalPanel>
+                        <g:HorizontalPanel ui:field="childPic"/>
+
                         <g:HTMLPanel>
-                            <b.html:Paragraph/>
-                            <b.html:Paragraph
-                                    text="На диаграммах ниже визуализирована работа касс магазина. Каждая диаграмма отображает изменение очереди в течение определенного промежутка времени. Вдоль горизонтальной оси слева направо отложено время, каждый столбец — состояние очереди на определенном шаге. Кассы могут иметь разную «длину ленты» — количество товаров, которые могут быть обработаны за один шаг."/>
-                            <b.html:Paragraph
-                                    text="Лента на диаграммах отображена в виде серой полосы вверху диаграммы, высота которой соответствует «длине ленты». Сетка разлинована также в «длинах лент», таким образом в каждом столбце можно видеть, как он будет смещаться с течением времени (на одну ячейку за шаг)."/>
+                            <strong>Покупатель-ребенок</strong>
+                            самый беззаботный, может подойти к
+                            <i>любой</i>
+                            кассе.
                         </g:HTMLPanel>
-                    </b:Column>
-                </b:Row>
-                <b:Row>
-                    <b:Column size="MD_2"/>
-                    <b:Column size="MD_4">
-                        <b:Row>
-                            <b:Column size="MD_3">
-                                <b.html:Div ui:field="childPic"/>
-                            </b:Column>
+                    </g:HorizontalPanel>
 
-                            <b:Column size="MD_9">
-                                <g:HTMLPanel>
-                                    <b.html:Strong>Покупатель-ребенок</b.html:Strong>
-                                    самый беззаботный, может подойти к
-                                    <b.html:Italic>любой</b.html:Italic>
-                                    кассе.
-                                </g:HTMLPanel>
-                            </b:Column>
-                        </b:Row>
-                        <b:Row>
-                            <b:Column size="MD_3">
-                                <b.html:Div ui:field="femalePic"/>
+                    <g:HorizontalPanel>
+                        <g:HorizontalPanel ui:field="femalePic"/>
 
-                            </b:Column>
 
-                            <b:Column size="MD_9">
-                                <g:HTMLPanel>
-                                    <b.html:Strong>Покупатель-женщина</b.html:Strong>
-                                    выбирает <b.html:Italic>очередь покороче</b.html:Italic>.
-                                </g:HTMLPanel>
-                            </b:Column>
-                        </b:Row>
-                        <b:Row>
-                            <b:Column size="MD_3">
-                                <b.html:Div ui:field="malePic"/>
+                        <g:HTMLPanel>
+                            <strong>Покупатель-женщина</strong>
+                            выбирает<i>очередь покороче</i>.
+                        </g:HTMLPanel>
+                    </g:HorizontalPanel>
 
-                            </b:Column>
+                    <g:HorizontalPanel>
+                        <g:HorizontalPanel ui:field="malePic"/>
 
-                            <b:Column size="MD_9">
-                                <g:HTMLPanel>
-                                    <b.html:Strong>Покупатель-мужчина</b.html:Strong>
-                                    самый прагматичный. Он учитывает
-                                    <b.html:Italic>все</b.html:Italic>
-                                    факторы и выбирает очередь, в которой он быстрее всего освободится.
-                                </g:HTMLPanel>
-                            </b:Column>
-                        </b:Row>
 
-                    </b:Column>
-                    <b:Column size="MD_4">
-                        <b:Row>
-                            <b:Column size="MD_3">
-                                <b.html:Div ui:field="multiItemPic"/>
+                        <g:HTMLPanel>
+                            <strong>Покупатель-мужчина</strong>
+                            самый прагматичный. Он учитывает
+                            <i>все</i>
+                            факторы и выбирает очередь, в которой он быстрее всего освободится.
+                        </g:HTMLPanel>
+                    </g:HorizontalPanel>
+                </g:VerticalPanel>
 
-                            </b:Column>
 
-                            <b:Column size="MD_9">
-                                <g:HTMLPanel>Так выглядит
-                                    <b.html:Strong>покупатель</b.html:Strong>
-                                    с
-                                    <b.html:Italic>несколькими</b.html:Italic>
-                                    товарами в тележке. Если товаров много, то ему придется провести много времени у
-                                    кассы,
-                                    особенно с короткой лентой.
-                                </g:HTMLPanel>
-                            </b:Column>
-                        </b:Row>
-                        <b:Row>
-                            <b:Column size="MD_3">
-                                <b.html:Div ui:field="newPic"/>
 
-                            </b:Column>
+                <g:VerticalPanel>
+                    <g:HorizontalPanel>
+                        <g:HorizontalPanel ui:field="multiItemPic"/>
 
-                            <b:Column size="MD_9">
-                                <g:HTMLPanel><b.html:Strong>Покупатель</b.html:Strong>, только что подошедший к кассе,
-                                    которая ему больше приглянулась.
-                                </g:HTMLPanel>
-                            </b:Column>
-                        </b:Row>
-                        <b:Row>
-                            <b:Column size="MD_3">
 
-                            </b:Column>
-                            <b:Column size="MD_9">
+                        <g:HTMLPanel>Так выглядит
+                            <strong>покупатель</strong>
+                            с
+                            <i>несколькими</i>
+                            товарами в тележке. Если товаров много, то ему придется провести много времени у
+                            кассы,
+                            особенно с короткой лентой.
+                        </g:HTMLPanel>
+                    </g:HorizontalPanel>
 
-                            </b:Column>
-                        </b:Row>
-                    </b:Column>
-                    <b:Column size="MD_2"/>
-                </b:Row>
-            </b.html:Div>
+                    <g:HorizontalPanel>
+                        <g:HorizontalPanel ui:field="newPic"/>
+
+
+                        <g:HTMLPanel><strong>Покупатель</strong>, только что подошедший к кассе,
+                            которая ему больше приглянулась.
+                        </g:HTMLPanel>
+                    </g:HorizontalPanel>
+                </g:VerticalPanel>
+        </g:HorizontalPanel>
+
+            <g:HorizontalPanel/>
+
         <!--</b:Collapse>-->
-    </b.html:Div>
+    </g:HTMLPanel>
 
 
 </ui:UiBinder>

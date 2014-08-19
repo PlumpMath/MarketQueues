@@ -4,8 +4,9 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.Widget;
-import org.gwtbootstrap3.client.ui.html.Div;
 
 public class Description extends Composite {
 	interface DescriptionUiBinder extends UiBinder<Widget, Description> {
@@ -13,33 +14,33 @@ public class Description extends Composite {
 
 	private static DescriptionUiBinder ourUiBinder = GWT.create(DescriptionUiBinder.class);
 	@UiField
-	Div femalePic;
+	HorizontalPanel femalePic;
 	@UiField
-	Div malePic;
+	HorizontalPanel malePic;
 	@UiField
-	Div childPic;
+	HorizontalPanel childPic;
 	@UiField
-	Div newPic;
+	HorizontalPanel newPic;
 	@UiField
-	Div multiItemPic;
+	HorizontalPanel multiItemPic;
 
-	public Div getFemalePic() {
+	public Panel getFemalePic() {
 		return femalePic;
 	}
 
-	public Div getMalePic() {
+	public Panel getMalePic() {
 		return malePic;
 	}
 
-	public Div getChildPic() {
+	public Panel getChildPic() {
 		return childPic;
 	}
 
-	public Div getNewPic() {
+	public Panel getNewPic() {
 		return newPic;
 	}
 
-	public Div getMultiItemPic() {
+	public Panel getMultiItemPic() {
 		return multiItemPic;
 	}
 

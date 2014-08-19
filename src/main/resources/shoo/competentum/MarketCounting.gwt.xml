@@ -2,9 +2,6 @@
 <module rename-to='MarketCounting'>
     <!-- Inherit the core Web Toolkit stuff.                        -->
     <inherits name='com.google.gwt.user.User'/>
-    <inherits name='org.gwtbootstrap3.GwtBootstrap3'/>
-    <inherits name="org.gwtbootstrap3.extras.respond.Respond"/>
-    <inherits name="org.gwtbootstrap3.extras.slider.Slider"/>
     <inherits name='org.vaadin.gwtgraphics.GWTGraphics'/>
 
     <!--<inherits name="com.google.gwt.logging.Logging"/>-->
