@@ -4,7 +4,7 @@ import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Panel;
 import shoo.competentum.client.events.LaunchCustomerEventHandler;
 import shoo.competentum.client.events.LaunchCustomersEvent;
 import shoo.competentum.client.presenter.ControlsPresenter;
@@ -22,7 +22,7 @@ public class AppPresenter implements Presenter {
 	private final HandlerManager eventBus;
 	private final CountingServiceAsync rpcService;
 	private AppView display;
-	private VerticalPanel resultContainer;
+	private Panel resultContainer;
 	private CountersView countersView;
 
 	public AppPresenter(CountingServiceAsync rpcService,

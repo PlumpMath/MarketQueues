@@ -3,6 +3,7 @@
     <!-- Inherit the core Web Toolkit stuff.                        -->
     <inherits name='com.google.gwt.user.User'/>
     <inherits name='org.vaadin.gwtgraphics.GWTGraphics'/>
+    <inherits name="com.smartgwt.SmartGwt"/>
 
     <!--<inherits name="com.google.gwt.logging.Logging"/>-->
     <entry-point class='shoo.competentum.client.MarketCounting'/>
