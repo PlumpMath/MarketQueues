@@ -4,8 +4,8 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class AppView extends Composite{
@@ -16,7 +16,7 @@ public class AppView extends Composite{
 	@UiField
 	SimplePanel controlsContainer;
 	@UiField
-	VerticalPanel contentContainer;
+	ScrollPanel contentContainer;
 
 
 	private static AppViewUiBinder ourUiBinder = GWT.create(AppViewUiBinder.class);
@@ -29,7 +29,7 @@ public class AppView extends Composite{
 		return controlsContainer;
 	}
 
-	public VerticalPanel getContentContainer() {
+	public ScrollPanel getContentContainer() {
 		return contentContainer;
 	}
 

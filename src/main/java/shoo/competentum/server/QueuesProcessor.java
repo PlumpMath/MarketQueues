@@ -14,7 +14,10 @@ import java.util.List;
 import java.util.Random;
 
 
-public class CounterProcessor {
+/**
+ * Класс предназначен для расчета состояний очередей за определенный промежуток времени.
+ */
+public class QueuesProcessor {
 	private final int MIN_PERFORMANCE = 3;
 	private final int MAX_PERFORMANCE = 6;
 	private final Random RND = new Random();
@@ -22,11 +25,7 @@ public class CounterProcessor {
 	private Populator populator;
 
 
-	private CounterProcessor() {
-	}
-
-
-	public CounterProcessor(int numCounters, Populator populator) {
+	public QueuesProcessor(int numCounters, Populator populator) {
 		this.populator = populator;
 		for (int i = 0; i < numCounters; i++) {
 			counters.add(
