@@ -4,7 +4,8 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class AppView extends Composite{
@@ -13,9 +14,9 @@ public class AppView extends Composite{
 
 
 	@UiField
-	HTMLPanel controlsContainer;
+	SimplePanel controlsContainer;
 	@UiField
-	HTMLPanel contentContainer;
+	VerticalPanel contentContainer;
 
 
 	private static AppViewUiBinder ourUiBinder = GWT.create(AppViewUiBinder.class);
@@ -24,11 +25,11 @@ public class AppView extends Composite{
 		initWidget(ourUiBinder.createAndBindUi(this));
 	}
 
-	public HTMLPanel getControlsContainer() {
+	public SimplePanel getControlsContainer() {
 		return controlsContainer;
 	}
 
-	public HTMLPanel getContentContainer() {
+	public VerticalPanel getContentContainer() {
 		return contentContainer;
 	}
 

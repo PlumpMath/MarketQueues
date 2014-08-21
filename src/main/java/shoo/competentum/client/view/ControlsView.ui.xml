@@ -1,49 +1,27 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
              xmlns:s="urn:import:shoo.competentum.client.view"
+
         >
-    <ui:style>
-        .controls {
-            line-height: normal;
-        }
+    <g:HorizontalPanel>
 
-        .controls img {
-            vertical-align: baseline;
-        }
-    </ui:style>
-    <g:HTMLPanel addStyleNames="{style.controls}">
-        <div class="row">
-            <div class="col-md-3">
-                <s:CustomSlider ui:field="numCounters" value="4" minValue='1' maxValue="10" vertical="false"
-                                title="Число касс"/>
-                <s:CustomSlider ui:field="numSteps" value="75" minValue='1' maxValue="150" vertical="false"
-                                title="Число шагов"/>
+        <g:VerticalPanel>
+            <s:CustomSlider ui:field="numCounters" value="4" minValue='1' maxValue="10" vertical="false" title="Число касс"/>
+            <s:CustomSlider ui:field="numSteps" value="75" minValue='1' maxValue="150" vertical="false" title="Число шагов"/>
 
-            </div>
+        </g:VerticalPanel>
 
-            <div class="col-md-3">
-                <div class="row">
-                    <div class="col-md-3">
-                        <s:CustomSlider ui:field="malePrc" value="33" minValue='0' maxValue="100" vertical="true"
-                                        title="Процет мужчин" height="100px"/>
-                    </div>
+        <g:HorizontalPanel>
+            <s:CustomSlider ui:field="malePrc" value="33" minValue='0' maxValue="100" vertical="true"
+                            title="Процет мужчин"/>
+            <s:CustomSlider ui:field="femalePrc" value="33" minValue='0' maxValue="100" vertical="true"
+                            title="Процет женщин"/>
+            <s:CustomSlider ui:field="childrenPrc" value="34" disabled="true" minValue='0' maxValue="100"
+                            vertical="true" title="Процет детей"/>
+            <g:Button   ui:field="launchButton">Показать</g:Button>
 
-                    <div class="col-md-3">
+        </g:HorizontalPanel>
 
-                        <s:CustomSlider ui:field="femalePrc" value="33" minValue='0' maxValue="100" vertical="true"
-                                        title="Процет женщин" height="100px"/>
-                    </div>
-                    <div class="col-md-3">
 
-                        <s:CustomSlider ui:field="childrenPrc" value="34" disabled="true" minValue='0' maxValue="100"
-                                        vertical="true" title="Процет детей" height="100px"/>
-                    </div>
-                    <div class="col-md-3">
-
-                        <g:Button ui:field="launchButton">Показать</g:Button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </g:HTMLPanel>
+    </g:HorizontalPanel>
 </ui:UiBinder>

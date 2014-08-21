@@ -2,7 +2,7 @@ package shoo.competentum.client.view;
 
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import org.vaadin.gwtgraphics.client.DrawingArea;
 import org.vaadin.gwtgraphics.client.Line;
 import org.vaadin.gwtgraphics.client.shape.Circle;
@@ -27,11 +27,11 @@ public class CountersView extends Composite {
 		put(CustomerKind.MALE, "#0072bc");
 	}};
 	;
-	HTMLPanel container;
+	VerticalPanel container;
 
 
 	public CountersView() {
-		container = new HTMLPanel("");
+		container = new VerticalPanel();
 		initWidget(container);
 		Description descr = new Description();
 		addLegendPictures(descr);
