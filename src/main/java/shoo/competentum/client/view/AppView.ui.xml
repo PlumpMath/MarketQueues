@@ -2,36 +2,29 @@
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
         >
 
-    <!--<ui:style>-->
-    <!--button {-->
-    <!--margin: 0.5em;-->
-    <!--}-->
+    <ui:style>
+        button {
+            margin: 0.5em;
+        }
 
-    <!--span {-->
-    <!--margin-right: 5px;-->
-    <!--}-->
+        span {
+            margin-right: 5px;
+        }
+
+        .content {
+            padding: 2em 3em 0px;
+        }
+
+    </ui:style>
 
 
-    <!--</ui:style>-->
-
-
-    <g:HTMLPanel >
+    <g:HTMLPanel addStyleNames="{style.content}">
         <h2>Расчет движения очереди</h2>
 
-        <!--<b:Button>Some button</b:Button>-->
+        <g:HTMLPanel ui:field="controlsContainer"/>
+        <g:HTMLPanel ui:field="contentContainer"/>
 
-
-        <g:SimplePanel ui:field="controlsContainer"/>
-        <g:VerticalPanel ui:field="contentContainer" />
-        <!--<b.html:Div>-->
-            <!--<b:Jumbotron>-->
-                <!--<b:Heading size="H1" text="Sample Web App"/>-->
-                <!--<b.html:Paragraph>Just fork this repo and get started!!</b.html:Paragraph>-->
-            <!--</b:Jumbotron>-->
-        <!--</b.html:Div>-->
     </g:HTMLPanel>
-
-
 
 
 </ui:UiBinder>
