@@ -58,7 +58,6 @@ public class ControlsView extends Composite {
 
 
 	public HasClickHandlers getLaunchButton() {
-
 		return launchButton;
 	}
 
@@ -73,7 +72,6 @@ public class ControlsView extends Composite {
 	public int getNumSteps() {
 		return (int) numSteps.getValue();
 	}
-
 
 	public int getNumCounters() {
 

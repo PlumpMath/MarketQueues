@@ -6,6 +6,9 @@ import shoo.competentum.shared.CustomerKind;
 import java.util.Random;
 
 
+/**
+ * При каждом обращении к populate() создается новый экземпляр покупателя, тип и количество товаров которого выбираются случайно.
+ */
 public class RandomPopulator implements Populator {
 	private static final Random RND = new Random();
 	private static final int MAX_ITEMS = 10;

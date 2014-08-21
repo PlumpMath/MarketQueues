@@ -15,10 +15,6 @@ public class MaleResolver implements CustomerResolver {
 		this.customer = customer;
 	}
 
-	private MaleResolver() {
-
-	}
-
 	public CheckoutCounter chooseCounter(ArrayList<CheckoutCounter> checkoutCounters) {
 		CheckoutCounter[] clone = checkoutCounters.toArray(new CheckoutCounter[checkoutCounters.size()]);
 		Arrays.sort(

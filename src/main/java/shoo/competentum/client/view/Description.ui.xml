@@ -3,12 +3,6 @@
     <g:HTMLPanel width="960px">
         <h3>Описание</h3>
 
-
-        <!--<g:HorizontalPanel>-->
-        <!--<b:Lead text="Описание"/>-->
-        <!--<b:Button type="PRIMARY" marginLeft="50" dataToggle="COLLAPSE" dataTarget="#demoCollapse" text="Скрыть"/>-->
-        <!--</g:HorizontalPanel>-->
-        <!--<b:Collapse b:id="demoCollapse">-->
         <g:VerticalPanel>
             <g:HorizontalPanel>
                 <g:HTMLPanel>
@@ -28,10 +22,8 @@
         <g:HorizontalPanel>
 
         <g:VerticalPanel>
-
                     <g:HorizontalPanel>
                         <g:HorizontalPanel ui:field="childPic"/>
-
                         <g:HTMLPanel>
                             <strong>Покупатель-ребенок</strong>
                             самый беззаботный, может подойти к
@@ -42,8 +34,6 @@
 
                     <g:HorizontalPanel>
                         <g:HorizontalPanel ui:field="femalePic"/>
-
-
                         <g:HTMLPanel>
                             <strong>Покупатель-женщина</strong>
                             выбирает<i> очередь покороче</i>.
@@ -52,8 +42,6 @@
 
                     <g:HorizontalPanel>
                         <g:HorizontalPanel ui:field="malePic"/>
-
-
                         <g:HTMLPanel>
                             <strong>Покупатель-мужчина</strong>
                             самый прагматичный. Он учитывает
@@ -63,13 +51,9 @@
                     </g:HorizontalPanel>
                 </g:VerticalPanel>
 
-
-
                 <g:VerticalPanel>
                     <g:HorizontalPanel>
                         <g:HorizontalPanel ui:field="multiItemPic"/>
-
-
                         <g:HTMLPanel>Так выглядит
                             <strong>покупатель</strong>
                             с
@@ -82,8 +66,6 @@
 
                     <g:HorizontalPanel>
                         <g:HorizontalPanel ui:field="newPic"/>
-
-
                         <g:HTMLPanel><strong>Покупатель</strong>, только что подошедший к кассе,
                             которая ему больше приглянулась.
                         </g:HTMLPanel>
@@ -93,7 +75,6 @@
 
             <g:HorizontalPanel/>
 
-        <!--</b:Collapse>-->
     </g:HTMLPanel>
 
 

@@ -6,6 +6,12 @@ import shoo.competentum.shared.CustomerKind;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * При создании экземпляра SetPopulator задается набор покупателей.
+ * При вызове populate() из набора извлекается и возвращается произвольный покупатель.
+ * После того, как покупатели в наборе закончатся, обращение к populate() будет вызывать ошибку.
+ *
+ */
 public class SetPopulator implements Populator {
 
 	private ArrayList<Customer> setOfCustomers;

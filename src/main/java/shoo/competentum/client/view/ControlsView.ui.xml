@@ -3,19 +3,12 @@
              xmlns:s="urn:import:shoo.competentum.client.view"
         >
 
-    <ui:style>
-        .controls {
-            vertical-align: bottom;
-        }
-    </ui:style>
-    <g:HorizontalPanel styleName="{style.controls}" verticalAlignment="ALIGN_BOTTOM">
 
+    <g:HorizontalPanel verticalAlignment="ALIGN_BOTTOM">
         <g:VerticalPanel>
             <s:CustomSlider ui:field="numCounters" value="4" minValue='1' maxValue="10" vertical="false" title="Число касс"/>
             <s:CustomSlider ui:field="numSteps" value="75" minValue='1' maxValue="150" vertical="false" title="Число шагов"/>
-
         </g:VerticalPanel>
-
         <g:HorizontalPanel height="130px" >
             <s:CustomSlider ui:field="malePrc" value="33" minValue='0' maxValue="100" vertical="true"
                             title="Процет мужчин" height="100px"/>
@@ -24,9 +17,6 @@
             <s:CustomSlider ui:field="childrenPrc" value="34" disabled="true" minValue='0' maxValue="100"
                             vertical="true" title="Процет детей" height="100px"/>
             <g:Button   ui:field="launchButton">Показать</g:Button>
-
         </g:HorizontalPanel>
-
-
     </g:HorizontalPanel>
 </ui:UiBinder>

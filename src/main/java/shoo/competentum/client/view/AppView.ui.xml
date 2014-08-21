@@ -6,10 +6,8 @@
         body {
             font-family: sans-serif;
             padding: 2em 3em 0px;
-
         }
         button {
-
             color: rgb(255, 255, 255);
             border-color: rgb(53, 126, 189);
             display: inline-block;
@@ -27,7 +25,6 @@
             border: 1px solid transparent;
             border-radius: 4px;
         }
-
         span {
             margin-right: 5px;
         }
@@ -37,7 +34,6 @@
         td {
             padding: 0.5em;
         }
-
     </ui:style>
 
 

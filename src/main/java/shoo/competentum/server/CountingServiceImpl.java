@@ -17,7 +17,7 @@ public class CountingServiceImpl extends RemoteServiceServlet implements
 
 	public List<CheckoutCounter> processCustomers(int numSteps, int numCounters, double malePercent, double femalePercent) throws IllegalArgumentException {
 		Populator populator = new SetPopulator(malePercent, femalePercent, numSteps);
-		CounterProcessor processor = new CounterProcessor(numCounters, populator);
+		QueuesProcessor processor = new QueuesProcessor(numCounters, populator);
 		List<CheckoutCounter> result = processor.launch(numSteps);
 		return result;
 	}
