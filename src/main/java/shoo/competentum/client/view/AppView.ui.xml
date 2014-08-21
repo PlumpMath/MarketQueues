@@ -2,36 +2,50 @@
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
         >
 
-    <!--<ui:style>-->
-    <!--button {-->
-    <!--margin: 0.5em;-->
-    <!--}-->
+    <ui:style>
+        body {
+            font-family: sans-serif;
+            padding: 2em 3em 0px;
 
-    <!--span {-->
-    <!--margin-right: 5px;-->
-    <!--}-->
+        }
+        button {
+
+            color: rgb(255, 255, 255);
+            border-color: rgb(53, 126, 189);
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            -moz-user-select: none;
+            background: rgb(66, 139, 202) none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        span {
+            margin-right: 5px;
+        }
+        .content {
+            overflow-y: hidden !important;
+        }
+        td {
+            padding: 0.5em;
+        }
+
+    </ui:style>
 
 
-    <!--</ui:style>-->
-
-
-    <g:HTMLPanel >
+    <g:HTMLPanel>
         <h2>Расчет движения очереди</h2>
-
-        <!--<b:Button>Some button</b:Button>-->
-
-
         <g:SimplePanel ui:field="controlsContainer"/>
-        <g:VerticalPanel ui:field="contentContainer" />
-        <!--<b.html:Div>-->
-            <!--<b:Jumbotron>-->
-                <!--<b:Heading size="H1" text="Sample Web App"/>-->
-                <!--<b.html:Paragraph>Just fork this repo and get started!!</b.html:Paragraph>-->
-            <!--</b:Jumbotron>-->
-        <!--</b.html:Div>-->
+        <g:ScrollPanel width="960px" styleName="{style.content}" ui:field="contentContainer"/>
     </g:HTMLPanel>
-
-
 
 
 </ui:UiBinder>
